@@ -1,0 +1,6 @@
+plotly
+streamlit-option-menu
+pandas
+numpy
+pickle
+scikit-learn
