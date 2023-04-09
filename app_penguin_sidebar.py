@@ -29,25 +29,24 @@ st.title("Penguin Species Predition")
 เพกวินเป็นนก ... แต่บินไม่ได้
 
 '''
-   
-tab1 , tab2 = st.tabs(["Prediction", "Evaluation"]) 
-# with st.sidebar:
-#         menuItem = option_menu("Penguin",
-#                                ["Prediction", "Evaluation"],
-#                                icons=["magic", "file-bar-graph-fill"],
-#                                menu_icon='house',
-#                                default_index=0,
-#                                styles={
-#                                    "container": {"padding": "5!important", "background-color": "#fafafa"},
-#                                    "icon": {"color": "black", "font-size": "25px"},
-#                                    "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px",
-#                                                 "--hover-color": "#eee"},
-#                                    "nav-link-selected": {"background-color": "#037ffc"},
-#                                })
+    
+with st.sidebar:
+        menuItem = option_menu("Penguin",
+                               ["Prediction", "Evaluation"],
+                               icons=["magic", "file-bar-graph-fill"],
+                               menu_icon='house',
+                               default_index=0,
+                               styles={
+                                   "container": {"padding": "5!important", "background-color": "#fafafa"},
+                                   "icon": {"color": "black", "font-size": "25px"},
+                                   "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px",
+                                                "--hover-color": "#eee"},
+                                   "nav-link-selected": {"background-color": "#037ffc"},
+                               })
 
         
-# if menuItem == "Prediction":
-with tab1:
+if menuItem == "Prediction":
+    
     x1 = st.radio("เลือก island ",island_encoder.classes_)
     x1 = island_encoder.transform([x1])[0]
     x2 = st.slider("เลือก culmen length (mm)", 20,70,35 )
@@ -73,8 +72,8 @@ with tab1:
     st.markdown('### Predicted Species: ' )
     st.markdown(html_str, unsafe_allow_html=True)
 
-# if menuItem == "Evaluation":
-with tab2:
+if menuItem == "Evaluation":
+   
     x = evaluations.columns
     fig = px.Figure(data=[
         px.Bar(name = 'Decision Tree',
